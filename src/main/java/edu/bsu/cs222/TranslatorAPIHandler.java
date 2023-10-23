@@ -11,7 +11,7 @@ class TranslatorAPIHandler {
         try {
             translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
         } catch (Exception exception) {
-            throw new TranslationException("Failed to initialize");
+            throw new TranslationException("Failure to initialize");
         }
     }
 
