@@ -7,7 +7,7 @@ public class TranslatorApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Translate App");
-        System.out.println("Enter a word to translate:");
+        System.out.println("Enter word in English to translate to Spanish:");
 
         String input = scanner.nextLine();
         String apiKey = "AIzaSyCefoMSOZ4NATjaLsTutfj_lATTwnURkp0";
