@@ -1,8 +1,26 @@
 package edu.bsu.cs222;
 
+import java.util.Scanner;
+
 public class TranslatorApp {
+
     public static void main(String[] args) {
-        TranslatorApp translatorApp = new TranslatorApp();
-        translatorApp.();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Translate App");
+        System.out.println("Enter a word to translate:");
+
+        String input = scanner.nextLine();
+        String apiKey = "AIzaSyCefoMSOZ4NATjaLsTutfj_lATTwnURkp0";
+
+        try {
+            TranslatorAPIHandler translatorAPIHandler = new TranslatorAPIHandler(apiKey);
+            String translatedText = translatorAPIHandler.translateText(input, "en", "es");
+
+            System.out.println("Translation: " + translatedText);
+        } catch (TranslationException e) {
+            System.err.println(e.getMessage());
+        } finally {
+            scanner.close();
+        }
     }
 }
