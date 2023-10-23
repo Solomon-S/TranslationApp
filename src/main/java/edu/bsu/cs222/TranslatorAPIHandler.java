@@ -11,7 +11,7 @@ class TranslatorAPIHandler {
         try {
             translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
         } catch (Exception exception) {
-            throw new TranslationException("Failed to initialize the translation service.");
+            throw new TranslationException("Failed to initialize");
         }
     }
 
@@ -26,7 +26,7 @@ class TranslatorAPIHandler {
             );
             return translation.getTranslatedText();
         } catch (Exception e) {
-            throw new TranslationException("An error occurred during translation.");
+            throw new TranslationException("An error occurred during translation");
         }
     }
 

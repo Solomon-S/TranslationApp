@@ -24,9 +24,8 @@ public class TranslatorAPIHandlerTest {
             String expectedTranslation = "Hola mundo".toLowerCase();
             assertEquals(expectedTranslation, translatedText);
         } catch (Exception e) {
-            // Handle the exception, for example, by failing the test
             e.printStackTrace();
-            fail("Failed to load credentials or perform translation");
+            fail("Translation Failure");
         }
     }
 }

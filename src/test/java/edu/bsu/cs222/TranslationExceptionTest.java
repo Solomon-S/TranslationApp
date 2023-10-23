@@ -8,7 +8,7 @@ public class TranslationExceptionTest {
 
     @Test
     public void testTranslationExceptionMessage() {
-        String errorMessage = "Test error message";
+        String errorMessage = "Test error";
         TranslationException exception = new TranslationException(errorMessage);
         String exceptionMessage = exception.getMessage();
         assertEquals(errorMessage, exceptionMessage);
