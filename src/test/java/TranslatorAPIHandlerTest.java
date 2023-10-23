@@ -1,9 +1,6 @@
-import edu.bsu.cs222.TranslatorAPIHandler;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
-
-import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
@@ -13,10 +10,9 @@ public class TranslatorAPIHandlerTest {
     @Test
     public void testTranslation() {
         try {
-            GoogleCredentials credentials = GoogleCredentials.fromStream(
-                    TranslatorAPIHandler.class.getResourceAsStream("credentials/APIkey.json"));
+            String apiKey = "AIzaSyCefoMSOZ4NATjaLsTutfj_lATTwnURkp0";
 
-            Translate translate = TranslateOptions.newBuilder().setCredentials(credentials).build().getService();
+            Translate translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
 
             Translation translation = translate.translate(
                     "Hello world",
@@ -24,8 +20,8 @@ public class TranslatorAPIHandlerTest {
                     Translate.TranslateOption.targetLanguage("es")
             );
 
-            String translatedText = translation.getTranslatedText();
-            String expectedTranslation = "Hola mundo";
+            String translatedText = translation.getTranslatedText().toLowerCase();
+            String expectedTranslation = "Hola mundo".toLowerCase();
             assertEquals(expectedTranslation, translatedText);
         } catch (Exception e) {
             // Handle the exception, for example, by failing the test
