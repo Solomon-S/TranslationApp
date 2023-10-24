@@ -1,5 +1,4 @@
 package edu.bsu.cs222;
-
 import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
@@ -21,7 +20,7 @@ class TranslatorAPIHandler {
         try {
             Translation translation = translate.translate(
                     text,
-                    Translate.TranslateOption.sourceLanguage(sourceLanguage),
+                    Translate.TranslateOption.sourceLanguage(targetLanguage),
                     Translate.TranslateOption.targetLanguage(targetLanguage)
             );
             return translation.getTranslatedText();
