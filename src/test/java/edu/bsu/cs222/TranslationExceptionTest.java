@@ -6,7 +6,7 @@ public class TranslationExceptionTest {
 
     @Test
     public void testTranslationExceptionMessage() {
-        String errorMessage = "Test error";
+        String errorMessage = "Test error has occured";
         TranslationException exception = new TranslationException(errorMessage);
         String exceptionMessage = exception.getMessage();
         assertEquals(errorMessage, exceptionMessage);
