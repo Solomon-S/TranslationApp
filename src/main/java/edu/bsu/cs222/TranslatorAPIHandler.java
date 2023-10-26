@@ -20,7 +20,7 @@ class TranslatorAPIHandler {
         try {
             Translation translation = translate.translate(
                     text,
-                    Translate.TranslateOption.sourceLanguage(targetLanguage),
+                    Translate.TranslateOption.sourceLanguage(sourceLanguage),
                     Translate.TranslateOption.targetLanguage(targetLanguage)
             );
             return translation.getTranslatedText();
