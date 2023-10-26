@@ -10,7 +10,7 @@ import com.google.cloud.translate.Translation;
 public class TranslatorAPIHandlerTest {
 
     @Test
-    public void testTranslation() {
+    public void testTranslationPhrase() {
         try {
             String apiKey = "AIzaSyCefoMSOZ4NATjaLsTutfj_lATTwnURkp0";
 
@@ -24,6 +24,28 @@ public class TranslatorAPIHandlerTest {
 
             String translatedText = translation.getTranslatedText().toLowerCase();
             String expectedTranslation = "Hola mundo".toLowerCase();
+            assertEquals(expectedTranslation, translatedText);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail("Translation Failure");
+        }
+    }
+
+    @Test
+    public void testTranslationWord() {
+        try {
+            String apiKey = "AIzaSyCefoMSOZ4NATjaLsTutfj_lATTwnURkp0";
+
+            Translate translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
+
+            Translation translation = translate.translate(
+                    "Hello",
+                    Translate.TranslateOption.sourceLanguage("en"),
+                    Translate.TranslateOption.targetLanguage("es")
+            );
+
+            String translatedText = translation.getTranslatedText().toLowerCase();
+            String expectedTranslation = "Hola".toLowerCase();
             assertEquals(expectedTranslation, translatedText);
         } catch (Exception e) {
             e.printStackTrace();
