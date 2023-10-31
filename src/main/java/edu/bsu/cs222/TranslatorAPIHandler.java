@@ -5,7 +5,6 @@ import com.google.cloud.translate.Translation;
 
 class TranslatorAPIHandler {
     private final Translate translate;
-
     public TranslatorAPIHandler(String apiKey) {
         try {
             translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
@@ -13,10 +12,8 @@ class TranslatorAPIHandler {
             throw new TranslationException("Failure to initialize");
         }
     }
-
     public String translateText(String text, String sourceLanguage, String targetLanguage) {
         validateInput(text, sourceLanguage, targetLanguage);
-
         try {
             Translation translation = translate.translate(
                     text,
@@ -28,7 +25,6 @@ class TranslatorAPIHandler {
             throw new TranslationException("An error occurred during translation");
         }
     }
-
     private void validateInput(String text, String sourceLanguage, String targetLanguage) {
         if (sourceLanguage == null || targetLanguage == null || text == null) {
             throw new IllegalArgumentException("Invalid input");
