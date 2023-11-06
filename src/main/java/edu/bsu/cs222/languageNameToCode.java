@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class languageNameToCode {
-    static String mapLanguageNameToCode(String languageName) {
-        // Define a mapping of common language names to language codes
+    public static String mapLanguageNameToCode(String languageName) {
         Map<String, String> languageMappings = new HashMap<>();
         languageMappings.put("Spanish", "es");
         languageMappings.put("Japanese", "ja");

@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 
 import static edu.bsu.cs222.languageNameToCode.mapLanguageNameToCode;
 
@@ -30,6 +31,12 @@ public class TranslatorAppLogic {
         languageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
         languageComboBox.setPromptText("Select Target Language");
         Button historyButton = new Button("View History");
+
+        Font headerAndTextFont = new Font(36); // Define the header font size
+        Font buttonFont = new Font(24); // Define the button font size
+
+        FontUtility.setFontSize(headerAndTextFont, titleLabel, inputLabel, inputTextField, resultLabel);
+        FontUtility.setFontSize(buttonFont, translateButton, historyButton, languageComboBox);
 
         // Set the action for the Translation button
         translateButton.setOnAction(e -> translate());

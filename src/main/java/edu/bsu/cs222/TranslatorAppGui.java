@@ -34,8 +34,11 @@ public class TranslatorAppGui extends Application {
     }
     public void showHistoryPage() {
         ListView<String> historyListView = new ListView<>(translationHistory);
+        Font largeFont = new Font(24); // Define the common font size
+        FontUtility.setFontSize(largeFont, historyListView);
 
         Button backButton = new Button("Back to Translation");
+        FontUtility.setFontSize(largeFont, backButton);
 
         backButton.setOnAction(e -> showTranslationPage());
 
