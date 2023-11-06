@@ -1,7 +1,10 @@
 package edu.bsu.cs222;
 
+import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 
 import static edu.bsu.cs222.languageNameToCode.mapLanguageNameToCode;
@@ -26,10 +29,26 @@ public class TranslatorAppLogic {
         resultLabel = new Label();
         languageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
         languageComboBox.setPromptText("Select Target Language");
+        Button historyButton = new Button("View History");
+
+        // Set the action for the Translation button
         translateButton.setOnAction(e -> translate());
 
+        // Add a key event listener to the inputTextField
+        inputTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.ENTER) {
+                    translateButton.fire();
+                }
+            }
+        });
+
+        historyButton.setOnAction(e -> appGUI.showHistoryPage());
+
+        // Create and return the root node
         VBox root = new VBox(20);
-        root.getChildren().addAll(titleLabel, inputLabel, inputTextField, languageComboBox, translateButton, resultLabel);
+        root.getChildren().addAll(titleLabel, inputLabel, inputTextField, languageComboBox, translateButton, resultLabel, historyButton);
         root.setSpacing(20);
 
         return root;
@@ -39,5 +58,12 @@ public class TranslatorAppLogic {
         String targetLanguageName = languageComboBox.getValue();
         String targetLanguage = mapLanguageNameToCode(targetLanguageName);
 
+        if (targetLanguage == null) {
+            resultLabel.setText("Language not recognized. Please try again.");
+        } else {
+            String translationResult = translatorAPIHandler.translateText(input, "en", targetLanguage);
+            resultLabel.setText(translationResult);
+            appGUI.getTranslationHistory().add("English to " + targetLanguageName + ": " + input + " -> " + translationResult);
+        }
     }
 }
