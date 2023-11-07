@@ -8,6 +8,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
+import java.util.Objects;
+
 import static edu.bsu.cs222.languageNameToCode.mapLanguageNameToCode;
 
 public class TranslatorAppLogic {
@@ -60,17 +62,22 @@ public class TranslatorAppLogic {
 
         return root;
     }
+
     private void translate() {
         String input = inputTextField.getText();
         String targetLanguageName = languageComboBox.getValue();
         String targetLanguage = mapLanguageNameToCode(targetLanguageName);
 
-        if (targetLanguage == null) {
-            resultLabel.setText("Language not recognized. Please try again.");
+        if (!Objects.equals(input, "")) {
+            if (targetLanguage == null) {
+                resultLabel.setText("Language not recognized. Please try again.");
+            } else {
+                String translationResult = translatorAPIHandler.translateText(input, "en", targetLanguage);
+                resultLabel.setText(translationResult);
+                appGUI.getTranslationHistory().add("English to " + targetLanguageName + ": " + input + " -> " + translationResult);
+            }
         } else {
-            String translationResult = translatorAPIHandler.translateText(input, "en", targetLanguage);
-            resultLabel.setText(translationResult);
-            appGUI.getTranslationHistory().add("English to " + targetLanguageName + ": " + input + " -> " + translationResult);
+            resultLabel.setText("Please enter a word, phrase, or text in English to translate!");
         }
     }
 }
