@@ -75,7 +75,6 @@ public class TranslatorAppLogic {
             if (targetLanguage == null) {
                 resultLabel.setText("Language not recognized. Please try again.");
             } else {
-                // Check for internet connection
                 if (isInternetConnected()) {
                     String translationResult = translatorAPIHandler.translateText(input, "en", targetLanguage);
                     resultLabel.setText(translationResult);
@@ -88,10 +87,22 @@ public class TranslatorAppLogic {
             resultLabel.setText("Please enter a word, phrase, or text in English to translate!");
         }
     }
-    private boolean isInternetConnected() {
+    boolean isInternetConnected() {
         try {
             // Try to make a small network request to a known server or website
             HttpURLConnection connection = (HttpURLConnection) new URL("https://www.google.com").openConnection();
+            connection.setRequestMethod("HEAD");
+            int responseCode = connection.getResponseCode();
+            return (responseCode == HttpURLConnection.HTTP_OK);
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    //For Testing internet connection method using non existent domain
+    boolean isInternetConnectedNoDomain(){
+        try {
+            HttpURLConnection connection = (HttpURLConnection) new URL("https://thisdomaindoesnotexist12345.com").openConnection();
             connection.setRequestMethod("HEAD");
             int responseCode = connection.getResponseCode();
             return (responseCode == HttpURLConnection.HTTP_OK);
