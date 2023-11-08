@@ -8,6 +8,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Objects;
 
 import static edu.bsu.cs222.languageNameToCode.mapLanguageNameToCode;
@@ -72,12 +75,30 @@ public class TranslatorAppLogic {
             if (targetLanguage == null) {
                 resultLabel.setText("Language not recognized. Please try again.");
             } else {
-                String translationResult = translatorAPIHandler.translateText(input, "en", targetLanguage);
-                resultLabel.setText(translationResult);
-                appGUI.getTranslationHistory().add("English to " + targetLanguageName + ": " + input + " -> " + translationResult);
+                // Check for internet connection
+                if (isInternetConnected()) {
+                    String translationResult = translatorAPIHandler.translateText(input, "en", targetLanguage);
+                    resultLabel.setText(translationResult);
+                    appGUI.getTranslationHistory().add("English to " + targetLanguageName + ": " + input + " -> " + translationResult);
+                } else {
+                    resultLabel.setText("No internet connection.");
+                }
             }
         } else {
             resultLabel.setText("Please enter a word, phrase, or text in English to translate!");
         }
     }
+    private boolean isInternetConnected() {
+        try {
+            // Try to make a small network request to a known server or website
+            HttpURLConnection connection = (HttpURLConnection) new URL("https://www.google.com").openConnection();
+            connection.setRequestMethod("HEAD");
+            int responseCode = connection.getResponseCode();
+            return (responseCode == HttpURLConnection.HTTP_OK);
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+
 }
