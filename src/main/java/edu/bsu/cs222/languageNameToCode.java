@@ -30,6 +30,7 @@ public class languageNameToCode {
         languageMappings.put("Hindi", "hi");
         languageMappings.put("Urdu", "ur");
         languageMappings.put("Vietnamese", "vi");
+        languageMappings.put("Burmese", "my");
         // Add more mappings as needed
 
         return languageMappings.get(languageName);
