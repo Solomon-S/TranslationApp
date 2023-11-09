@@ -7,6 +7,7 @@ import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
 
+@SuppressWarnings("ALL")
 public class TranslatorAPIHandlerTest {
 
     @Test

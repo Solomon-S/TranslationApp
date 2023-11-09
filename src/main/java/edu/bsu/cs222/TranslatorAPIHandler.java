@@ -3,6 +3,7 @@ import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
 
+@SuppressWarnings("ALL")
 class TranslatorAPIHandler {
     private final Translate translate;
     public TranslatorAPIHandler(String apiKey) {
