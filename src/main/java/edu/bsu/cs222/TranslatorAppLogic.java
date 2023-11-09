@@ -99,7 +99,7 @@ public class TranslatorAppLogic {
     }
 
     //For Testing no internet connection method by a using non-existent domain
-    boolean isInternetConnectedNoDomain(){
+    boolean noInternetConnection(){
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL("https://thisdomaindoesnotexist12345.com").openConnection();
             connection.setRequestMethod("HEAD");

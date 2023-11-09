@@ -12,8 +12,8 @@ public class TranslatorAppLogicTest {
     }
 
     @Test
-    public void testIsInternetConnected_NonExistentDomain() {
+    public void testNoInternetConnection() {
         TranslatorAppLogic translatorAppLogic = new TranslatorAppLogic(null);
-        assertFalse(translatorAppLogic.isInternetConnectedNoDomain());
+        assertFalse(translatorAppLogic.noInternetConnection());
     }
 }
