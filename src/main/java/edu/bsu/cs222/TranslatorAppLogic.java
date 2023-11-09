@@ -89,7 +89,6 @@ public class TranslatorAppLogic {
     }
     boolean isInternetConnected() {
         try {
-            // Try to make a small network request to a known server or website
             HttpURLConnection connection = (HttpURLConnection) new URL("https://www.google.com").openConnection();
             connection.setRequestMethod("HEAD");
             int responseCode = connection.getResponseCode();
@@ -99,7 +98,7 @@ public class TranslatorAppLogic {
         }
     }
 
-    //For Testing internet connection method using non existent domain
+    //For Testing no internet connection method by a using non-existent domain
     boolean isInternetConnectedNoDomain(){
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL("https://thisdomaindoesnotexist12345.com").openConnection();
