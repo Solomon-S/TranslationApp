@@ -6,7 +6,7 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
-group 'edu.bsu.cs222.wikipedia'
+group 'edu.bsu.cs222.TranslatorApp'
 version '1.0-SNAPSHOT'
 
 repositories {
