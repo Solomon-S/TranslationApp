@@ -45,11 +45,6 @@ public class TranslatorAppLogic {
         }
     }
 
-
-
-
-
-
     public Parent getRoot() {
         Label titleLabel = new Label("Welcome to the Translation App");
         Label inputLabel = new Label("Enter a word, phrase, or text in English to translate");
@@ -66,10 +61,8 @@ public class TranslatorAppLogic {
         FontUtility.setFontSize(headerAndTextFont, titleLabel, inputLabel, inputTextField, resultLabel);
         FontUtility.setFontSize(buttonFont, translateButton, historyButton, languageComboBox);
 
-        // Set the action for the Translation button
         translateButton.setOnAction(e -> translate());
 
-        // Add a key event listener to the inputTextField
         inputTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {

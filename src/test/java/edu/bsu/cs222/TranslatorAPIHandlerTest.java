@@ -7,16 +7,20 @@ import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
 
-@SuppressWarnings("ALL")
+import java.util.Properties;
+import java.io.InputStream;
+
 public class TranslatorAPIHandlerTest {
 
     @Test
     public void testTranslationPhrase() {
         try {
-            String apiKey = "AIzaSyCefoMSOZ4NATjaLsTutfj_lATTwnURkp0";
+            InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties");
+            Properties properties = new Properties();
+            properties.load(input);
 
+            String apiKey = properties.getProperty("Translator_API_key");
             Translate translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
-
             Translation translation = translate.translate(
                     "Hello world",
                     Translate.TranslateOption.sourceLanguage("en"),
@@ -35,7 +39,11 @@ public class TranslatorAPIHandlerTest {
     @Test
     public void testTranslationWord() {
         try {
-            String apiKey = "AIzaSyCefoMSOZ4NATjaLsTutfj_lATTwnURkp0";
+            InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties");
+            Properties properties = new Properties();
+            properties.load(input);
+
+            String apiKey = properties.getProperty("Translator_API_key");
 
             Translate translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
 
