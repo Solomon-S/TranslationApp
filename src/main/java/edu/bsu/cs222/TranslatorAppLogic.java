@@ -13,9 +13,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Objects;
 
-import java.io.InputStream;
-import java.util.Properties;
-
 import static edu.bsu.cs222.languageNameToCode.mapLanguageNameToCode;
 
 public class TranslatorAppLogic {
@@ -31,19 +28,25 @@ public class TranslatorAppLogic {
     }
 
     private TranslatorAPIHandler makeTranslatorApiHandler() {
-        try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
-            Properties properties = new Properties();
-            properties.load(input);
-            String apiKey = properties.getProperty("Translator_API_key");
-            if (apiKey == null || apiKey.isEmpty()) {
-                throw new IllegalArgumentException("Missing API key");
-            }
-            return new TranslatorAPIHandler(apiKey);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error loading necessary files");
+        String apiKey = ReadConfigurations.getApiKey();
+        if (apiKey == null || apiKey.isEmpty()) {
+            throw new IllegalArgumentException("Missing API key");
         }
+        return new TranslatorAPIHandler(apiKey);
     }
+
+//        try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
+//            Properties properties = new Properties();
+//            properties.load(input);
+//            String apiKey = properties.getProperty("Translator_API_key");
+//            if (apiKey == null || apiKey.isEmpty()) {
+//                throw new IllegalArgumentException("Missing API key");
+//            }
+//            return new TranslatorAPIHandler(apiKey);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            throw new RuntimeException("Error loading necessary files");
+//        }
 
     public Parent getRoot() {
         Label titleLabel = new Label("Welcome to the Translation App");
