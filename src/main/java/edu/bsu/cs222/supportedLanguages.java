@@ -7,6 +7,10 @@ public class supportedLanguages {
     public static final ObservableList<String> supportedLanguages = FXCollections.observableArrayList(
             "Spanish", "Japanese", "Italian", "Arabic", "Korean", "Catalan", "Simplified Chinese",
             "Traditional Chinese", "Polish", "Dutch", "Portuguese", "Russian", "French", "Swedish",
-            "German", "Greek", "Telugu", "Gujarati", "Thai", "Hebrew", "Ukrainian", "Hindi", "Urdu", "Vietnamese","Burmese"
+            "German", "Greek", "Telugu", "Gujarati", "Thai", "Hebrew", "Ukrainian", "Hindi", "Urdu",
+            "Vietnamese","Burmese", "Afrikaans", "Albanian", "Amharic", "Armenian", "Assamese", "Aymara",
+            "Azerbaijani", "Bambara", "Basque", "Belarusian", "Bengali", "Bhojpuri", "Bosnian", "Bulgarian",
+            "Cebuano", "Corsican", "Croatian", "Czech", ""
+
     );
 }

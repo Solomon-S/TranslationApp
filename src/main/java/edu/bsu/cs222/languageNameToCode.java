@@ -31,6 +31,24 @@ public class languageNameToCode {
         languageMappings.put("Urdu", "ur");
         languageMappings.put("Vietnamese", "vi");
         languageMappings.put("Burmese", "my");
+        languageMappings.put("Afrikaans", "af");
+        languageMappings.put("Albanian", "sq");
+        languageMappings.put("Amharic", "am");
+        languageMappings.put("Armenian", "hy");
+        languageMappings.put("Assamese", "as");
+        languageMappings.put("Aymara", "ay");
+        languageMappings.put("Azerbaijani", "az");
+        languageMappings.put("Bambara", "bm");
+        languageMappings.put("Basque", "eu");
+        languageMappings.put("Belarusian", "be");
+        languageMappings.put("Bengali", "bn");
+        languageMappings.put("Bhojpuri", "bho");
+        languageMappings.put("Bosnian", "bs");
+        languageMappings.put("Bulgarian", "bg");
+        languageMappings.put("Cebuano", "ceb");
+        languageMappings.put("Corsican", "co");
+        languageMappings.put("Croatian", "hr");
+        languageMappings.put("Czech", "cs");
         // Add more mappings as needed
 
         return languageMappings.get(languageName);
