@@ -40,4 +40,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-config.properties
+
+
+# .gitignore
+src/main/resources/config.properties
