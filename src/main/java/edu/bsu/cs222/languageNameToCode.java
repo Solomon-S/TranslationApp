@@ -71,6 +71,34 @@ public class languageNameToCode {
         languageMappings.put("Ilocano", "ilo");
         languageMappings.put("Indonesian", "id");
         languageMappings.put("Irish", "ga");
+        languageMappings.put("Javanese", "jv");
+        languageMappings.put("Kannada", "kn");
+        languageMappings.put("Kazakh", "kk");
+        languageMappings.put("Khmer", "km");
+        languageMappings.put("Kinyarwanda", "rw");
+        languageMappings.put("Konkani", "gom");
+        languageMappings.put("Krio", "kri");
+        languageMappings.put("Kurdish", "ku");
+        languageMappings.put("Kurdish (Sorani)", "ckb");
+        languageMappings.put("Kyrgyz", "ky");
+        languageMappings.put("Lao", "lo");
+        languageMappings.put("Latin", "la");
+        languageMappings.put("Latvian", "lv");
+        languageMappings.put("Lingala", "ln");
+        languageMappings.put("Lithuanian", "lt");
+        languageMappings.put("Luxembourgish", "lb");
+        languageMappings.put("Macedonian", "mk");
+        languageMappings.put("Maithili", "mai");
+        languageMappings.put("Malagasy", "mg");
+        languageMappings.put("Malay", "ms");
+        languageMappings.put("Malayalam", "ml");
+        languageMappings.put("Maltese", "mt");
+        languageMappings.put("Maori", "mi");
+        languageMappings.put("Marathi", "mr");
+        languageMappings.put("Meiteilon (Manipuri)", "mni-Mtei");
+        languageMappings.put("Mizo", "lus");
+        languageMappings.put("Mongolian", "mn");
+        languageMappings.put("Myanmar (Burmese)", "my");
         // Add more mappings as needed
 
         return languageMappings.get(languageName);

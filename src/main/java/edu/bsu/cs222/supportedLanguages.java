@@ -13,6 +13,10 @@ public class supportedLanguages {
             "Cebuano", "Corsican", "Croatian", "Czech", "Danish", "Dhivehi", "Dogri", "Esperanto",
             "Estonian", "Ewe", "Filipino (Tagalog)", "Finnish", "Frisian", "Galician", "Georgian",
             "Guarani", "Haitian Creole", "Hausa", "Hawaiian", "Hmong", "Hungarian", "Icelandic", "Igbo",
-            "Ilocano", "Indonesian", "Irish"
+            "Ilocano", "Indonesian", "Irish", "Javanese", "Kannada", "Kazakh", "Khmer", "Kinyarwanda",
+            "Konkani", "Krio", "Kurdish", "Kurdish (Sorani)", "Kyrgyz", "Lao", "Latin", "Latvian",
+            "Lingala", "Lithuanian", "Luxembourgish", "Macedonian", "Maithili", "Malagasy", "Malay",
+            "Malayalam", "Maltese", "Maori", "Marathi", "Meiteilon (Manipuri)", "Mizo", "Mongolian",
+            "Myanmar (Burmese)"
     );
 }
