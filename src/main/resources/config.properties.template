@@ -1,0 +1,4 @@
+# config.properties.template
+api.key=MY_API_KEY
+
+replace MY_API_KEY with an API key
