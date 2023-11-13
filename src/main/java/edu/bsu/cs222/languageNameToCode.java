@@ -49,6 +49,28 @@ public class languageNameToCode {
         languageMappings.put("Corsican", "co");
         languageMappings.put("Croatian", "hr");
         languageMappings.put("Czech", "cs");
+        languageMappings.put("Danish", "da");
+        languageMappings.put("Dhivehi", "dv");
+        languageMappings.put("Dogri", "doi");
+        languageMappings.put("Esperanto", "eo");
+        languageMappings.put("Estonian", "et");
+        languageMappings.put("Ewe", "ee");
+        languageMappings.put("Filipino (Tagalog)", "fil");
+        languageMappings.put("Finnish", "fi");
+        languageMappings.put("Frisian", "fy");
+        languageMappings.put("Galician", "gl");
+        languageMappings.put("Georgian", "ka");
+        languageMappings.put("Guarani", "gn");
+        languageMappings.put("Haitian Creole", "ht");
+        languageMappings.put("Hausa", "ha");
+        languageMappings.put("Hawaiian", "haw");
+        languageMappings.put("Hmong", "hmn");
+        languageMappings.put("Hungarian", "hu");
+        languageMappings.put("Icelandic", "is");
+        languageMappings.put("Igbo", "ig");
+        languageMappings.put("Ilocano", "ilo");
+        languageMappings.put("Indonesian", "id");
+        languageMappings.put("Irish", "ga");
         // Add more mappings as needed
 
         return languageMappings.get(languageName);
