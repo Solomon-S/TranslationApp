@@ -14,9 +14,9 @@ public class FontUtility {
             } else if (node instanceof TextField) {
                 ((TextField) node).setFont(font);
             } else if (node instanceof ComboBox) {
-                ((ComboBox) node).setStyle("-fx-font-size: " + font.getSize());
+                node.setStyle("-fx-font-size: " + font.getSize());
             } else if (node instanceof ListView) {
-                ((ListView) node).setStyle("-fx-font-size: " + font.getSize());
+                node.setStyle("-fx-font-size: " + font.getSize());
             }
         }
     }
