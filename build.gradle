@@ -36,6 +36,7 @@ test {
     useJUnitPlatform()
 }
 
+
 javafx {
     modules = [ 'javafx.controls', 'javafx.fxml', ]
     version = '21'

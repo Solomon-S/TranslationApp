@@ -19,7 +19,7 @@ public class TranslatorAPIHandlerTest {
             Properties properties = new Properties();
             properties.load(input);
 
-            String apiKey = properties.getProperty("Translator_API_key");
+            String apiKey = ReadConfigurations.getApiKey();
             Translate translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
             Translation translation = translate.translate(
                     "Hello world",
@@ -43,7 +43,7 @@ public class TranslatorAPIHandlerTest {
             Properties properties = new Properties();
             properties.load(input);
 
-            String apiKey = properties.getProperty("Translator_API_key");
+            String apiKey = ReadConfigurations.getApiKey();
 
             Translate translate = TranslateOptions.newBuilder().setApiKey(apiKey).build().getService();
 
