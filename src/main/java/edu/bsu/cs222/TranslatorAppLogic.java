@@ -1,14 +1,17 @@
 package edu.bsu.cs222;
 
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -36,22 +39,10 @@ public class TranslatorAppLogic {
         return new TranslatorAPIHandler(apiKey);
     }
 
-//        try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
-//            Properties properties = new Properties();
-//            properties.load(input);
-//            String apiKey = properties.getProperty("Translator_API_key");
-//            if (apiKey == null || apiKey.isEmpty()) {
-//                throw new IllegalArgumentException("Missing API key");
-//            }
-//            return new TranslatorAPIHandler(apiKey);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            throw new RuntimeException("Error loading necessary files");
-//        }
 
     public Parent getRoot() {
-        Label titleLabel = new Label("Welcome to the Translation App");
-        Label inputLabel = new Label("Enter a word, phrase, or text in English to translate");
+        Label titleLabel = new Label("Welcome to Ball State University's Translation App");
+        Label inputLabel = new Label("Enter text in English for translation");
         inputTextField = new TextField();
         Button translateButton = new Button("Translate");
         resultLabel = new Label();
@@ -65,6 +56,10 @@ public class TranslatorAppLogic {
         FontUtility.setFontSize(headerAndTextFont, titleLabel, inputLabel, inputTextField, resultLabel);
         FontUtility.setFontSize(buttonFont, translateButton, historyButton, languageComboBox);
 
+        titleLabel.setStyle("-fx-background-color: #7D0000; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 3px; -fx-padding: 10px;");
+        translateButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white;-fx-border-color: black; -fx-border-width: 2px;");
+        historyButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-text-fill: white;-fx-border-color: black; -fx-border-width: 2px;");
+
         translateButton.setOnAction(e -> translate());
 
         inputTextField.setOnKeyPressed(event -> {
@@ -72,13 +67,16 @@ public class TranslatorAppLogic {
                 translateButton.fire();
             }
         });
-
         historyButton.setOnAction(e -> appGUI.showHistoryPage());
+        //Title
+        HBox titleBox = new HBox(titleLabel);
+        titleBox.setAlignment(Pos.CENTER);
 
-        // Create and return the root node
+
         VBox root = new VBox(20);
         root.getChildren().addAll(titleLabel, inputLabel, inputTextField, languageComboBox, translateButton, resultLabel, historyButton);
         root.setSpacing(20);
+        root.setAlignment(Pos.CENTER);
 
         return root;
     }

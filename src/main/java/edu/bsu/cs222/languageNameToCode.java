@@ -138,7 +138,6 @@ public class languageNameToCode {
         languageMappings.put("Yiddish", "yi");
         languageMappings.put("Yoruba", "yo");
         languageMappings.put("Zulu", "zu");
-        // Add more mappings as needed
 
         return languageMappings.get(languageName);
     }

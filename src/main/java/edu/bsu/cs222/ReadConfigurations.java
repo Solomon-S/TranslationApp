@@ -15,7 +15,6 @@ public class ReadConfigurations {
                 return null;
             }
 
-            // Load a properties file from classpath
             properties.load(input);
             return properties.getProperty(API_KEY_PROPERTY);
 

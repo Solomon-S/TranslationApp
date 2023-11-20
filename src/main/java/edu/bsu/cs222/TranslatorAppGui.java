@@ -36,13 +36,16 @@ public class TranslatorAppGui extends Application {
         ListView<String> historyListView = new ListView<>(translationHistory);
         Font largeFont = new Font(24); // Define the common font size
         FontUtility.setFontSize(largeFont, historyListView);
+        historyListView.setStyle("-fx-background-color: #F0F0F0;");
 
         Button backButton = new Button("Back to Translation");
         FontUtility.setFontSize(largeFont, backButton);
 
+        backButton.setStyle("-fx-background-color: #7D0000; -fx-text-fill: white;");
         backButton.setOnAction(e -> showTranslationPage());
 
         VBox historyPage = new VBox(20);
+        historyPage.setStyle("-fx-padding: 20;");
         historyPage.getChildren().addAll(historyListView, backButton);
 
         Scene historyScene = createScene(historyPage);
