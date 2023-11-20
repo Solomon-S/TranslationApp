@@ -58,4 +58,5 @@ public class TranslatorAppGui extends Application {
         Scene translationScene = createScene(translatorApp.getRoot());
         primaryStage.setScene(translationScene);
     }
+
 }
