@@ -119,7 +119,7 @@ public class TranslatorAppLogic {
                 if (isInternetConnected()) {
                     String translationResult = translatorAPIHandler.translateText(input, sourceLanguage, targetLanguage);
                     resultLabel.setText(translationResult);
-                    appGUI.getTranslationHistory().add("English to " + targetLanguageName + ": " + input + " -> " + translationResult);
+                    appGUI.getTranslationHistory().add(sourceLanguage + " to" + targetLanguageName + ": " + input + " -> " + translationResult);
                 } else {
                     resultLabel.setText("No internet connection.");
                 }
