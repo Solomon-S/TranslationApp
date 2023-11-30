@@ -26,7 +26,7 @@ public class TranslatorAppLogic {
     private ComboBox<String> targetLanguageComboBox;
     private ComboBox<String> sourceLanguageComboBox;
     private Label resultLabel;
-    private TextArea notesText;
+    private final TextArea notesText;
 
     public TranslatorAppLogic(TranslatorAppGui appGUI) {
         this.appGUI = appGUI;
@@ -98,7 +98,7 @@ public class TranslatorAppLogic {
 
         //HISTORY
         VBox root = new VBox(20);
-        root.getChildren().addAll(titleLabel, inputLabel, inputTextField,targetLanguageComboBox,translateButton, resultLabel, historyButton, notesBox);
+        root.getChildren().addAll(titleLabel, inputLabel, inputTextField,sourceLanguageComboBox,targetLanguageComboBox,translateButton, resultLabel, historyButton, notesBox);
         root.setSpacing(20);
         root.setAlignment(Pos.CENTER);
 
