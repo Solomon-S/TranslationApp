@@ -46,8 +46,6 @@ public class TranslatorAppLogic {
 
     public Parent getRoot() {
         Label titleLabel = new Label("Welcome to Ball State University's Translation App");
-        targetLanguageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
-        targetLanguageComboBox.setPromptText("Select Target Language");
         Label inputLabel = new Label("Enter text for translation");
         inputTextField = new TextField();
         Button translateButton = new Button("Translate");
