@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+import javafx.collections.transformation.FilteredList;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -23,8 +24,8 @@ public class TranslatorAppLogic {
     private final TranslatorAPIHandler translatorAPIHandler;
     private final TranslatorAppGui appGUI;
     private TextField inputTextField;
-    private ComboBox<String> targetLanguageComboBox;
-    private ComboBox<String> sourceLanguageComboBox;
+    private TextField targetLanguageTextField;
+    private TextField sourceLanguageTextField;
     private Label resultLabel;
     private final TextArea notesText;
 
@@ -50,17 +51,58 @@ public class TranslatorAppLogic {
         inputTextField = new TextField();
         Button translateButton = new Button("Translate");
         resultLabel = new Label();
-        sourceLanguageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
-        sourceLanguageComboBox.setPromptText("Select Source Language");
-        targetLanguageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
-        targetLanguageComboBox.setPromptText("Select Target Language");
+
+        sourceLanguageTextField = new TextField();
+        sourceLanguageTextField.setPromptText("Search Source Language");
+        sourceLanguageTextField.setPrefWidth(400);
+
+        targetLanguageTextField = new TextField();
+        targetLanguageTextField.setPromptText("Search Target Language");
+        targetLanguageTextField.setPrefWidth(400);
+
         Button historyButton = new Button("View History");
+
+        FilteredList<String> filteredSourceLanguages = new FilteredList<>(supportedLanguages.supportedLanguages, p -> true);
+        sourceLanguageTextField.textProperty().addListener((observable, oldValue, newValue) -> filteredSourceLanguages.setPredicate(language -> {
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+            String lowerCaseFilter = newValue.toLowerCase();
+            return language.toLowerCase().contains(lowerCaseFilter);
+        }));
+
+        ListView<String> sourceLanguageListView = new ListView<>(filteredSourceLanguages);
+        sourceLanguageListView.setPrefSize(200, 20);
+        sourceLanguageListView.setStyle("-fx-font-size: 16;");
+
+        sourceLanguageListView.setOnMouseClicked(event -> {
+            String selectedLanguage = sourceLanguageListView.getSelectionModel().getSelectedItem();
+            sourceLanguageTextField.setText(selectedLanguage);
+        });
+
+        FilteredList<String> filteredTargetLanguages = new FilteredList<>(supportedLanguages.supportedLanguages, p -> true);
+        targetLanguageTextField.textProperty().addListener((observable, oldValue, newValue) -> filteredTargetLanguages.setPredicate(language -> {
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+            String lowerCaseFilter = newValue.toLowerCase();
+            return language.toLowerCase().contains(lowerCaseFilter);
+        }));
+
+        ListView<String> targetLanguageListView = new ListView<>(filteredTargetLanguages);
+        targetLanguageListView.setPrefSize(200, 20);
+        targetLanguageListView.setStyle("-fx-font-size: 16;");
+
+        targetLanguageListView.setOnMouseClicked(event -> {
+            String selectedLanguage = targetLanguageListView.getSelectionModel().getSelectedItem();
+            targetLanguageTextField.setText(selectedLanguage);
+        });
 
         Font headerAndTextFont = new Font(36);
         Font buttonFont = new Font(24);
 
         FontUtility.setFontSize(headerAndTextFont, titleLabel, inputLabel, inputTextField, resultLabel);
-        FontUtility.setFontSize(buttonFont, translateButton, historyButton, targetLanguageComboBox, sourceLanguageComboBox);
+        FontUtility.setFontSize(buttonFont, translateButton, historyButton, targetLanguageTextField, sourceLanguageTextField);
 
         titleLabel.setStyle("-fx-background-color: #7D0000; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 3px; -fx-padding: 10px;");
         translateButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white;-fx-border-color: black; -fx-border-width: 2px;");
@@ -90,13 +132,21 @@ public class TranslatorAppLogic {
         notesButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 2px; -fx-font-size: 24; -fx-padding: 10px;");
         notesButton.setOnAction(e -> notesText.clear());
 
+        HBox sourceLanguageBox = new HBox(sourceLanguageTextField, sourceLanguageListView);
+        sourceLanguageBox.setAlignment(Pos.CENTER);
+        sourceLanguageBox.setSpacing(50);
+
+        HBox targetLanguageBox = new HBox(targetLanguageTextField, targetLanguageListView);
+        targetLanguageBox.setAlignment(Pos.CENTER);
+        targetLanguageBox.setSpacing(50);
+
         // Layout for Notes
         VBox notesBox = new VBox(10, notesLabel, notesText, notesButton);
         notesBox.setAlignment(Pos.CENTER);
 
         //HISTORY
         VBox root = new VBox(20);
-        root.getChildren().addAll(titleLabel, inputLabel, inputTextField,sourceLanguageComboBox,targetLanguageComboBox,translateButton, resultLabel, historyButton, notesBox);
+        root.getChildren().addAll(titleLabel, inputLabel, inputTextField, sourceLanguageBox, targetLanguageBox, translateButton, resultLabel, historyButton, notesBox);
         root.setSpacing(20);
         root.setAlignment(Pos.CENTER);
 
@@ -105,9 +155,9 @@ public class TranslatorAppLogic {
 
     private void translate() {
         String input = inputTextField.getText();
-        String sourceLanguageName = sourceLanguageComboBox.getValue();
+        String sourceLanguageName = sourceLanguageTextField.getText();
         String sourceLanguage = mapLanguageNameToCode(sourceLanguageName);
-        String targetLanguageName = targetLanguageComboBox.getValue();
+        String targetLanguageName = targetLanguageTextField.getText();
         String targetLanguage = mapLanguageNameToCode(targetLanguageName);
 
         if (!Objects.equals(input, "")) {
