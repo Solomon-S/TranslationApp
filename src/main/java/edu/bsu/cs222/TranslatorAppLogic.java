@@ -23,7 +23,8 @@ public class TranslatorAppLogic {
     private final TranslatorAPIHandler translatorAPIHandler;
     private final TranslatorAppGui appGUI;
     private TextField inputTextField;
-    private ComboBox<String> languageComboBox;
+    private ComboBox<String> targetLanguageComboBox;
+    private ComboBox<String> sourceLanguageComboBox;
     private Label resultLabel;
     private TextArea notesText;
 
@@ -45,19 +46,23 @@ public class TranslatorAppLogic {
 
     public Parent getRoot() {
         Label titleLabel = new Label("Welcome to Ball State University's Translation App");
-        Label inputLabel = new Label("Enter text in English for translation");
+        targetLanguageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
+        targetLanguageComboBox.setPromptText("Select Target Language");
+        Label inputLabel = new Label("Enter text for translation");
         inputTextField = new TextField();
         Button translateButton = new Button("Translate");
         resultLabel = new Label();
-        languageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
-        languageComboBox.setPromptText("Select Target Language");
+        sourceLanguageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
+        sourceLanguageComboBox.setPromptText("Select Source Language");
+        targetLanguageComboBox = new ComboBox<>(supportedLanguages.supportedLanguages);
+        targetLanguageComboBox.setPromptText("Select Target Language");
         Button historyButton = new Button("View History");
 
         Font headerAndTextFont = new Font(36);
         Font buttonFont = new Font(24);
 
         FontUtility.setFontSize(headerAndTextFont, titleLabel, inputLabel, inputTextField, resultLabel);
-        FontUtility.setFontSize(buttonFont, translateButton, historyButton, languageComboBox);
+        FontUtility.setFontSize(buttonFont, translateButton, historyButton, targetLanguageComboBox, sourceLanguageComboBox);
 
         titleLabel.setStyle("-fx-background-color: #7D0000; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 3px; -fx-padding: 10px;");
         translateButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white;-fx-border-color: black; -fx-border-width: 2px;");
@@ -93,7 +98,7 @@ public class TranslatorAppLogic {
 
         //HISTORY
         VBox root = new VBox(20);
-        root.getChildren().addAll(titleLabel, inputLabel, inputTextField, languageComboBox, translateButton, resultLabel, historyButton, notesBox);
+        root.getChildren().addAll(titleLabel, inputLabel, inputTextField,targetLanguageComboBox,translateButton, resultLabel, historyButton, notesBox);
         root.setSpacing(20);
         root.setAlignment(Pos.CENTER);
 
@@ -102,7 +107,9 @@ public class TranslatorAppLogic {
 
     private void translate() {
         String input = inputTextField.getText();
-        String targetLanguageName = languageComboBox.getValue();
+        String sourceLanguageName = sourceLanguageComboBox.getValue();
+        String sourceLanguage = mapLanguageNameToCode(sourceLanguageName);
+        String targetLanguageName = targetLanguageComboBox.getValue();
         String targetLanguage = mapLanguageNameToCode(targetLanguageName);
 
         if (!Objects.equals(input, "")) {
@@ -110,7 +117,7 @@ public class TranslatorAppLogic {
                 resultLabel.setText("Language not recognized. Please try again.");
             } else {
                 if (isInternetConnected()) {
-                    String translationResult = translatorAPIHandler.translateText(input, "en", targetLanguage);
+                    String translationResult = translatorAPIHandler.translateText(input, sourceLanguage, targetLanguage);
                     resultLabel.setText(translationResult);
                     appGUI.getTranslationHistory().add("English to " + targetLanguageName + ": " + input + " -> " + translationResult);
                 } else {
