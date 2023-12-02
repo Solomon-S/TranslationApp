@@ -58,9 +58,9 @@ public class TranslatorAppLogic {
 
         targetLanguageTextField = new TextField();
         targetLanguageTextField.setPromptText("Search Target Language");
+        Button historyButton = new Button("View History");
         targetLanguageTextField.setPrefWidth(400);
 
-        Button historyButton = new Button("View History");
 
         FilteredList<String> filteredSourceLanguages = new FilteredList<>(supportedLanguages.supportedLanguages, p -> true);
         sourceLanguageTextField.textProperty().addListener((observable, oldValue, newValue) -> filteredSourceLanguages.setPredicate(language -> {
