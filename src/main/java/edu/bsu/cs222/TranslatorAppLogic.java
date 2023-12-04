@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -144,9 +146,15 @@ public class TranslatorAppLogic {
         VBox notesBox = new VBox(10, notesLabel, notesText, notesButton);
         notesBox.setAlignment(Pos.CENTER);
 
+        //Code for copy functionality
+        Button copyButton = new Button("Copy Translated Text");
+        copyButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 2px;");
+        copyButton.setFont(new Font(18));
+        copyButton.setOnAction(e -> copyTranslatedText());
+
         //HISTORY
         VBox root = new VBox(20);
-        root.getChildren().addAll(titleLabel, inputLabel, inputTextField, sourceLanguageBox, targetLanguageBox, translateButton, resultLabel, historyButton, notesBox);
+        root.getChildren().addAll(titleLabel, inputLabel, inputTextField, sourceLanguageBox, targetLanguageBox, translateButton, resultLabel, copyButton, historyButton, notesBox);
         root.setSpacing(20);
         root.setAlignment(Pos.CENTER);
 
@@ -176,6 +184,14 @@ public class TranslatorAppLogic {
             resultLabel.setText("Please enter a word, phrase, or text in English to translate!");
         }
     }
+    private void copyTranslatedText() {
+        String translatedText = resultLabel.getText();
+        ClipboardContent content = new ClipboardContent();
+        content.putString(translatedText);
+        Clipboard.getSystemClipboard().setContent(content);
+    }
+
+
     boolean isInternetConnected() {
         try {
             HttpURLConnection connection = (HttpURLConnection) new URL("https://www.google.com").openConnection();
@@ -198,4 +214,7 @@ public class TranslatorAppLogic {
             return false;
         }
     }
+
+
+
 }
