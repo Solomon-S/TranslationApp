@@ -115,9 +115,8 @@ public class TranslatorAppLogic {
         FontUtility.setFontSize(buttonFont, translateButton, historyButton, targetLanguageTextField, sourceLanguageTextField);
 
         titleLabel.setStyle("-fx-background-color: #7D0000; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 3px; -fx-padding: 10px;");
-        translateButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white;-fx-border-color: black; -fx-border-width: 2px;");
-        historyButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-text-fill: white;-fx-border-color: black; -fx-border-width: 2px;");
-
+        translateButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 2px; -fx-font-size: 18; -fx-padding: 10px;");
+        historyButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 2px; -fx-font-size: 18; -fx-padding: 10px;");
 
 
         translateButton.setOnAction(e -> translate());
