@@ -202,7 +202,7 @@ public class TranslatorAppLogic {
                 }
             }
         } else {
-            resultLabel.setText("Please enter a word, phrase, or text in English to translate!");
+            resultLabel.setText("Please enter a word, phrase, or text in " + sourceLanguageName + " to translate!");
         }
     }
     boolean isInternetConnected() {
