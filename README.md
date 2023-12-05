@@ -20,7 +20,10 @@ This project was created using IntelliJ Community Edition IDE
 *Configurations:*
 This project uses a configuration file to store the Google API key. To set up your local configuration:
 1. Create a `config.properties` file in the `src/main/resources/` directory as a project resource directory
-3. inculde the following: aapi.key=YourAPIKey123 (replace YourAPIKey123 with your actual api key. Note not to include any additional spaces)
+3. Inculde the following:
+api.key=YourAPIKey123
+(replace YourAPIKey123 with your actual api key.
+Note not to include any additional spaces)
 
 *Note:*
 You may receive a warning about Google Credentials but this can be ignored as it has no inpact on program funcionality. 
