@@ -33,9 +33,7 @@ public class TranslatorAppLogic {
         this.appGUI = appGUI;
         this.translatorAPIHandler = makeTranslatorApiHandler();
         this.notesText = new TextArea();
-
     }
-
     private TranslatorAPIHandler makeTranslatorApiHandler() {
         String apiKey = ReadConfigurations.getApiKey();
         if (apiKey == null || apiKey.isEmpty()) {
@@ -61,6 +59,15 @@ public class TranslatorAppLogic {
         Button historyButton = new Button("View History");
         targetLanguageTextField.setPrefWidth(400);
 
+        //light and dark mode buttons
+        Button lightModeButton = new Button("Light Mode");
+        lightModeButton.setOnAction(e -> appGUI.setLightMode() );
+        Button darkModeButton = new Button("Dark Mode");
+        darkModeButton.setOnAction(e -> appGUI.setDarkMode() );
+
+        HBox modeButtonsBox = new HBox(lightModeButton, darkModeButton);
+        modeButtonsBox.setAlignment(Pos.BASELINE_LEFT);
+        modeButtonsBox.setSpacing(30);
 
         FilteredList<String> filteredSourceLanguages = new FilteredList<>(supportedLanguages.supportedLanguages, p -> true);
         sourceLanguageTextField.textProperty().addListener((observable, oldValue, newValue) -> filteredSourceLanguages.setPredicate(language -> {
@@ -146,7 +153,10 @@ public class TranslatorAppLogic {
 
         //HISTORY
         VBox root = new VBox(20);
-        root.getChildren().addAll(titleLabel, inputLabel, inputTextField, sourceLanguageBox, targetLanguageBox, translateButton, resultLabel, historyButton, notesBox);
+        root.getChildren().addAll(titleLabel, inputLabel,
+                inputTextField, sourceLanguageBox,
+                targetLanguageBox, translateButton,
+                resultLabel, historyButton, notesBox, modeButtonsBox);
         root.setSpacing(20);
         root.setAlignment(Pos.CENTER);
 

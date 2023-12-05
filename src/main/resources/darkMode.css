@@ -1,0 +1,15 @@
+
+.root {
+    -fx-background-color: linear-gradient(to bottom, #380202, #1a1a1a);
+}
+
+.label, .text {
+    -fx-text-fill: white;
+}
+.button {
+    -fx-background-color: #555555;
+    -fx-text-fill: white;
+    -fx-pref-width: 130px;
+    -fx-pref-height: 70px;
+}
+
