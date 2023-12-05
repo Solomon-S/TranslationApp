@@ -26,5 +26,6 @@ api.key=YourAPIKey123
 Note not to include any additional spaces)
 
 *Note:*
-You may receive a warning about Google Credentials but this can be ignored as it has no inpact on program funcionality. 
+- It is recommended that you navigate the app in full screeen for optimal expereince. 
+- You may receive a warning about Google Credentials but this can be ignored as it has no inpact on program funcionality. 
 
