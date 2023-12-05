@@ -17,6 +17,9 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Objects;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Modality;
 
 import static edu.bsu.cs222.languageNameToCode.mapLanguageNameToCode;
 
@@ -137,7 +140,7 @@ public class TranslatorAppLogic {
 
         Button notesButton = new Button("Clear Notes");
         notesButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 2px; -fx-font-size: 24; -fx-padding: 10px;");
-        notesButton.setOnAction(e -> notesText.clear());
+        notesButton.setOnAction(e -> clearingNotes());
 
         HBox sourceLanguageBox = new HBox(sourceLanguageTextField, sourceLanguageListView);
         sourceLanguageBox.setAlignment(Pos.CENTER);
@@ -162,6 +165,22 @@ public class TranslatorAppLogic {
 
         return root;
     }
+    private void clearingNotes() {
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Confirmation");
+        confirmAlert.setHeaderText("You're about to clear your notes!");
+        confirmAlert.setContentText("Select 'OK' to continue");
+
+        confirmAlert.initModality(Modality.APPLICATION_MODAL);
+
+        confirmAlert.showAndWait().ifPresent(response -> {
+            if(response == ButtonType.OK) {
+                notesText.clear();
+            }
+        });
+    }
+
+
 
     private void translate() {
         String input = inputTextField.getText();
