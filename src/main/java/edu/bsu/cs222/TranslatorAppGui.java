@@ -33,7 +33,7 @@ public class TranslatorAppGui extends Application {
 
     }
     private Scene createScene(Parent root) {
-        return new Scene(root, 1024, 576);
+        return new Scene(root, 1024, 830);
     }
 
     public void setLightMode() {
