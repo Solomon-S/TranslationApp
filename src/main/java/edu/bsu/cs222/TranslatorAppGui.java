@@ -19,7 +19,6 @@ public class TranslatorAppGui extends Application {
     private static final String Dark_Mode_style = "/darkMode.css";
     @Override
     public void start(Stage primaryStage) {
-        setLightMode();
         this.primaryStage = primaryStage;
         primaryStage.setTitle("Translation App");
 
@@ -28,6 +27,7 @@ public class TranslatorAppGui extends Application {
         Scene scene = createScene(translatorApp.getRoot());
         primaryStage.setScene(scene);
         primaryStage.show();
+        setLightMode();
 
     }
     private Scene createScene(Parent root) {

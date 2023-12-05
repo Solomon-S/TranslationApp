@@ -139,7 +139,7 @@ public class TranslatorAppLogic {
         notesText.setPrefRowCount(20);
 
         Button notesButton = new Button("Clear Notes");
-        notesButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 2px; -fx-font-size: 24; -fx-padding: 10px;");
+        notesButton.setStyle("-fx-background-color: #333333; -fx-text-fill: white; -fx-border-color: black; -fx-border-width: 2px; -fx-font-size: 18; -fx-padding: 5px;");
         notesButton.setOnAction(e -> clearingNotes());
 
         HBox sourceLanguageBox = new HBox(sourceLanguageTextField, sourceLanguageListView);
