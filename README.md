@@ -25,7 +25,7 @@ api.key=YourAPIKey123
 (replace YourAPIKey123 with your actual api key.
 Note not to include any additional spaces)
 
-*Note:*
+## Additional Notes
 - It is recommended that you navigate the app in full screeen for optimal expereince. 
 - You may receive a warning about Google Credentials but this can be ignored as it has no inpact on program funcionality. 
 
