@@ -9,7 +9,7 @@
 .button {
     -fx-background-color: #555555;
     -fx-text-fill: white;
-    -fx-pref-width: 130px;
-    -fx-pref-height: 70px;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 400px;
 }
 
