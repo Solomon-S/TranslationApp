@@ -14,8 +14,12 @@ import javafx.stage.Stage;
 public class TranslatorAppGui extends Application {
     private final ObservableList<String> translationHistory = FXCollections.observableArrayList();
     private Stage primaryStage;
+
+    private static final String Light_Mode_style = "/lightMode.css";
+    private static final String Dark_Mode_style = "/darkMode.css";
     @Override
     public void start(Stage primaryStage) {
+        setLightMode();
         this.primaryStage = primaryStage;
         primaryStage.setTitle("Translation App");
 
@@ -29,6 +33,20 @@ public class TranslatorAppGui extends Application {
     private Scene createScene(Parent root) {
         return new Scene(root, 1024, 576);
     }
+
+    public void setLightMode() {
+        if (primaryStage != null && primaryStage.getScene() != null) {
+            primaryStage.getScene().getStylesheets().add(getClass().getResource(Light_Mode_style).toExternalForm());
+            primaryStage.getScene().getStylesheets().remove(getClass().getResource(Dark_Mode_style).toExternalForm());
+        }
+    }
+
+    public void setDarkMode() {
+        primaryStage.getScene().getStylesheets().clear();
+        primaryStage.getScene().getStylesheets().add(getClass().getResource(Dark_Mode_style).toExternalForm());
+
+    }
+
     public ObservableList<String> getTranslationHistory() {
         return translationHistory;
     }
