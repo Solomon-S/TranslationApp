@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class TranslatorAppGui extends Application {
     private final ObservableList<String> translationHistory = FXCollections.observableArrayList();
     private Stage primaryStage;
@@ -36,14 +38,14 @@ public class TranslatorAppGui extends Application {
 
     public void setLightMode() {
         if (primaryStage != null && primaryStage.getScene() != null) {
-            primaryStage.getScene().getStylesheets().add(getClass().getResource(Light_Mode_style).toExternalForm());
-            primaryStage.getScene().getStylesheets().remove(getClass().getResource(Dark_Mode_style).toExternalForm());
+            primaryStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(Light_Mode_style)).toExternalForm());
+            primaryStage.getScene().getStylesheets().remove(Objects.requireNonNull(getClass().getResource(Dark_Mode_style)).toExternalForm());
         }
     }
 
     public void setDarkMode() {
         primaryStage.getScene().getStylesheets().clear();
-        primaryStage.getScene().getStylesheets().add(getClass().getResource(Dark_Mode_style).toExternalForm());
+        primaryStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(Dark_Mode_style)).toExternalForm());
 
     }
 
