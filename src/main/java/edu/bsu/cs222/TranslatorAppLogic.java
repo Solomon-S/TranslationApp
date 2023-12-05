@@ -169,7 +169,7 @@ public class TranslatorAppLogic {
         Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmAlert.setTitle("Confirmation");
         confirmAlert.setHeaderText("You're about to clear your notes!");
-        confirmAlert.setContentText("'Continue' to continue");
+        confirmAlert.setContentText("Select 'OK' to continue");
 
         confirmAlert.initModality(Modality.APPLICATION_MODAL);
 
