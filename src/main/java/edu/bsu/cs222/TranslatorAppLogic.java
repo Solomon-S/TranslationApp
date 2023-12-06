@@ -30,12 +30,11 @@ public class TranslatorAppLogic {
     private TextField targetLanguageTextField;
     private TextField sourceLanguageTextField;
     private Label resultLabel;
-    private final TextArea notesText;
+    private TextArea notesText;
 
     public TranslatorAppLogic(TranslatorAppGui appGUI) {
         this.appGUI = appGUI;
         this.translatorAPIHandler = makeTranslatorApiHandler();
-        this.notesText = new TextArea();
     }
     private TranslatorAPIHandler makeTranslatorApiHandler() {
         String apiKey = ReadConfigurations.getApiKey();
@@ -132,6 +131,7 @@ public class TranslatorAppLogic {
         titleBox.setAlignment(Pos.CENTER);
 
         //Notes
+        this.notesText = new TextArea();
         Label notesLabel = new Label("Notes:");
         notesLabel.setStyle("-fx-font-size: 28; -fx-background-color: #7D0000; -fx-text-fill: white; -fx-padding: 5px;");
         notesText.setPrefColumnCount(20);
