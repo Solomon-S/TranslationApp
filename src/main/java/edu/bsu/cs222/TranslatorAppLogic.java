@@ -65,8 +65,11 @@ public class TranslatorAppLogic {
         //light and dark mode buttons
         Button lightModeButton = new Button("Light Mode");
         lightModeButton.setOnAction(e -> appGUI.setLightMode() );
+        lightModeButton.setPrefSize(200, 200);
+
         Button darkModeButton = new Button("Dark Mode");
         darkModeButton.setOnAction(e -> appGUI.setDarkMode() );
+        darkModeButton.setPrefSize(200, 200);
 
         HBox modeButtonsBox = new HBox(lightModeButton, darkModeButton);
         modeButtonsBox.setAlignment(Pos.BASELINE_LEFT);

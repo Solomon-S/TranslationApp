@@ -30,8 +30,7 @@ public class TranslatorAppGui extends Application {
         primaryStage.show();
 
     }
-    private Scene createScene(Parent root) {
-        return new Scene(root, 1024, 576);
+    private Scene createScene(Parent root) {return new Scene(root, 1024, 830);
     }
 
     public void setLightMode() {
