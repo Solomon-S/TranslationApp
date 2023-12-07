@@ -44,4 +44,4 @@ bin/
 
 # .gitignore
 # ignoreing config.properties
-config.properties
+src/main/resources/config.properties
