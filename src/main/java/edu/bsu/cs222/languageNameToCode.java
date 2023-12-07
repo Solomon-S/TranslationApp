@@ -27,7 +27,7 @@ public class languageNameToCode {
         languageMappings.put("Cebuano (Sinugboanon, Binisaya sa Sugbo)", "ceb");
         languageMappings.put("Corsican (Corsu)", "co");
         languageMappings.put("Croatian (Hrvatski)", "hr");
-        languageMappings.put("Czech (Čeština)\"", "cs");
+        languageMappings.put("Czech (Čeština)", "cs");
         languageMappings.put("Danish (Dansk)", "da");
         languageMappings.put("Dhivehi (ދިވެހި)", "dv");
         languageMappings.put("Dogri (डोगरी)", "doi");
