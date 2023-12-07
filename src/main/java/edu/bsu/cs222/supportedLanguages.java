@@ -5,11 +5,11 @@ import javafx.collections.ObservableList;
 
 public class supportedLanguages {
     public static final ObservableList<String> supportedLanguages = FXCollections.observableArrayList(
-            "Afrikaans", "Albanian", "Amharic", "Arabic", "Armenian", "Assamese", "Aymara","Azerbaijani",
-            "Bambara", "Basque", "Belarusian", "Bengali", "Bhojpuri", "Bosnian", "Bulgarian",  "Catalan",
-            "Chinese (Simplified)", "Chinese (Traditional)","Cebuano", "Corsican", "Croatian", "Czech",
-            "Danish", "Dhivehi", "Dogri", "Dutch", "English", "Esperanto", "Estonian", "Ewe", "Filipino (Tagalog)",
-            "Finnish", "French", "Frisian", "Galician", "Georgian", "German","Greek", "Guarani", "Gujarati",
+            "Afrikaans", "Albanian (shqipe)", "Amharic", "Arabic (عربي)", "Armenian (Հայերեն)", "Assamese (অসমীয়া)", "Aymara","Azerbaijani (Azərbaycanca)",
+            "Bambara (Bamanankan)", "Basque (Euskara)", "Belarusian (Беларуская)", "Bengali (বাংলা)", "Bhojpuri (भोजपुरी)", "Bosnian (Bosanski)", "Bulgarian (Български)",  "Catalan (Català)",
+            "Chinese (Simplified) 中文（简体）", "Chinese (Traditional) 中文（繁體）","Cebuano (Sinugboanon, Binisaya sa Sugbo)", "Corsican (Corsu)", "Croatian (Hrvatski)", "Czech (Čeština)",
+            "Danish (Dansk)", "Dhivehi (ދިވެހި)", "Dogri (डोगरी)", "Dutch (Nederlands)", "English ", "Esperanto", "Estonian (Eesti keel)", "Ewe (Eʋegbe)", "Filipino (Tagalog)",
+            "Finnish (Suomi)", "French (Français)", "Frisian (Frysk)", "Galician (Galego)", "Georgian (ქართული)", "German (Deutsch)","Greek (Ελληνικά)", "Guarani(Avañe'ẽ)", "Gujarati (ગુજરાતી)",
             "Haitian Creole", "Hausa", "Hawaiian", "Hebrew", "Hindi", "Hmong", "Hungarian", "Icelandic", "Igbo",
             "Ilocano", "Indonesian", "Irish", "Italian", "Japanese", "Javanese", "Kannada", "Kazakh", "Khmer",
             "Kinyarwanda", "Konkani", "Korean", "Krio", "Kurdish", "Kurdish (Sorani)", "Kyrgyz", "Lao", "Latin",
