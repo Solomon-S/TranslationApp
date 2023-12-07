@@ -10,7 +10,8 @@
 .button {
     -fx-background-color: #CCCCCC;
     -fx-text-fill: black;
-    -fx-pref-width: 130px;
-    -fx-pref-height: 70px;
+    -fx-border-width: 2px;
+    -fx-font-size: 24;
+    -fx-padding: 10px;
 }
 
