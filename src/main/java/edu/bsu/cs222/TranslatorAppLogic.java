@@ -81,7 +81,7 @@ public class TranslatorAppLogic {
         }));
 
         ListView<String> sourceLanguageListView = new ListView<>(filteredSourceLanguages);
-        sourceLanguageListView.setPrefSize(200, 20);
+        sourceLanguageListView.setPrefSize(300, 40);
         sourceLanguageListView.setStyle("-fx-font-size: 16;");
 
         sourceLanguageListView.setOnMouseClicked(event -> {
@@ -99,7 +99,7 @@ public class TranslatorAppLogic {
         }));
 
         ListView<String> targetLanguageListView = new ListView<>(filteredTargetLanguages);
-        targetLanguageListView.setPrefSize(200, 20);
+        targetLanguageListView.setPrefSize(300, 40);
         targetLanguageListView.setStyle("-fx-font-size: 16;");
 
         targetLanguageListView.setOnMouseClicked(event -> {
@@ -144,10 +144,12 @@ public class TranslatorAppLogic {
         HBox sourceLanguageBox = new HBox(sourceLanguageTextField, sourceLanguageListView);
         sourceLanguageBox.setAlignment(Pos.CENTER);
         sourceLanguageBox.setSpacing(50);
+        sourceLanguageBox.setMinHeight(100);
 
         HBox targetLanguageBox = new HBox(targetLanguageTextField, targetLanguageListView);
         targetLanguageBox.setAlignment(Pos.CENTER);
         targetLanguageBox.setSpacing(50);
+        targetLanguageBox.setMinHeight(100);
 
         // Layout for Notes
         VBox notesBox = new VBox(10, notesLabel, notesText, notesButton);
