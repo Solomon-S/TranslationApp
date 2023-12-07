@@ -15,11 +15,11 @@ public class supportedLanguages {
             "Kinyarwanda (Ikinyarwanda)", "Konkani (कोंकणी)", "Korean (한국어)", "Krio", "Kurdish (کوردی)", "Kurdish Sorani (کوردی سۆرانی)", "Kyrgyz (Кыргызча)", "Lao (ພາສາລາວ)", "Latin (Latina)",
             "Latvian (latviešu valoda)", "Lingala (Lingála)", "Lithuanian (lietuvių kalba)", "Luxembourgish (Lëtzebuergesch)", "Macedonian (Македонски)", "Maithili (मैथिली)", "Malagasy", "Malay (Bahasa Melayu)",
             "Malayalam (മലയാളം)", "Maltese (Malti)", "Maori (Māori)", "Marathi (मराठी)", "Meiteilon (মৈতৈলোন)", "Mizo (Mizo ṭawng)", "Mongolian (Монгол)", "Myanmar Burmese (မြန်မာစာ)",
-            "Nepali", "Norwegian", "Nyanja (Chichewa)", "Odia (Oriya)", "Oromo", "Pashto", "Persian", "Polish",
-            "Portuguese (Portugal, Brazil)", "Punjabi", "Quechua", "Romanian", "Russian", "Samoan", "Sanskrit",
-            "Scots Gaelic", "Sepedi", "Serbian", "Sesotho", "Shona", "Sindhi", "Sinhala (Sinhalese)", "Slovak",
-            "Slovenian", "Somali", "Spanish", "Sundanese", "Swahili", "Swedish", "Tagalog (Filipino)", "Tajik",
-            "Tamil", "Tatar", "Telugu", "Thai", "Tigrinya", "Tsonga", "Turkmen", "Twi (Akan)", "Ukrainian", "Urdu",
-            "Uyghur", "Uzbek", "Vietnamese", "Welsh", "Xhosa", "Yiddish", "Yoruba", "Zulu"
+            "Nepali (नेपाली)", "Norwegian (norsk)", "Nyanja (Chichewa)", "Odia (ଓଡ଼ିଆ)", "Oromo (Afaan Oromoo)", "Pashto (پښتو)", "Persian (فارسی)", "Polish (polski)",
+            "Portuguese (Português)", "Punjabi (ਪੰਜਾਬੀ)", "Quechua (Runasimi)", "Romanian (Română)", "Russian (Русский)", "Samoan (Gagana Samoa)", "Sanskrit (संस्कृतम्)",
+            "Scots Gaelic (Gàidhlig)", "Sepedi", "Serbian (Српски)", "Sesotho", "Shona (chiShona)", "Sindhi (سنڌي)", "Sinhala (සිංහල)", "Slovak (Slovenčina)",
+            "Slovenian (Slovenščina)", "Somali (Soomaali)", "Spanish (Español)", "Sundanese (Basa Sunda)", "Swahili (Kiswahili)", "Swedish (Svenska)", "Tagalog (Filipino)", "Tajik (Тоҷикӣ)",
+            "Tamil (தமிழ்)", "Tatar (Татарча)", "Telugu (తెలుగు)", "Thai (ไทย)", "Tigrinya", "Tsonga (Xitsonga)", "Turkmen (Türkmençe)", "Twi (Akan)", "Ukrainian (Українська)", "Urdu (اردو)",
+            "Uyghur (ئۇيغۇرچە)", "Uzbek (Ўзбек тили)", "Vietnamese (Tiếng Việt)", "Welsh (Cymraeg)", "Xhosa (isiXhosa)", "Yiddish (ייִדיש)", "Yoruba (Èdè Yorùbá)", "Zulu (isiZulu)"
     );
 }
