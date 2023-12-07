@@ -194,7 +194,9 @@ public class TranslatorAppLogic {
         String targetLanguage = mapLanguageNameToCode(targetLanguageName);
 
         if (!Objects.equals(input, "")) {
-            if (targetLanguage == null) {
+            if (Objects.equals(sourceLanguage, targetLanguage)){
+                resultLabel.setText(input);
+            } if (targetLanguage == null) {
                 resultLabel.setText("Language not recognized. Please try again.");
             } else {
                 if (isInternetConnected()) {
